@@ -2,11 +2,20 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Annotations;
+using Helena.Test.Back.Model.DTOs;
+using Helena.Test.Back.Service.Interfaces;
 
 namespace Helena.Test.Back.API.Controllers
 {
     public class CompanyController : GenericController
     {
+        private readonly ICompanyService _companyService;
+
+        public CompanyController(ICompanyService companyService)
+        {
+            _companyService = companyService;
+        }
+
         /// <summary>
         /// Obter todas as empresas
         /// </summary>
@@ -29,7 +38,7 @@ namespace Helena.Test.Back.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCompanies()
         {
-
+            return Ok(await _companyService.GetCompaniesAsync());
         }
 
         /// <summary>
@@ -58,6 +67,7 @@ namespace Helena.Test.Back.API.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetCompany([Required][FromRoute] string id)
         {
+            return Ok(await _companyService.GetCompanyAsync(id));
         }
 
         /// <summary>
@@ -81,6 +91,7 @@ namespace Helena.Test.Back.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCompany([FromBody] CompanyDTO companyDTO)
         {
+            return Created("Empresa Criada com Sucesso!",await _companyService.CreateCompanyAsync(companyDTO));
         }
 
         /// <summary>
@@ -108,7 +119,8 @@ namespace Helena.Test.Back.API.Controllers
         [Route("{id}")]
         public async Task<IActionResult> UpdateCompany([Required][FromRoute] string id, [FromBody] CompanyDTO companyDTO)
         {
-
+            await _companyService.UpdateCompanyAsync(id, companyDTO);
+            return NoContent();
         }
 
         /// <summary>
@@ -132,6 +144,8 @@ namespace Helena.Test.Back.API.Controllers
         [Route("{id}")]
         public async Task<IActionResult> DeleteCompany([Required][FromRoute] string id)
         {
+            await _companyService.DeleteCompanyAsync(id);
+            return NoContent();
         }
     }
 }
