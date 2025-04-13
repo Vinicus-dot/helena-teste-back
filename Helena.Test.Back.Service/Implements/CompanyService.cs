@@ -2,20 +2,13 @@
 using Helena.Test.Back.Service.Interfaces;
 using Helena.Test.Back.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ServiceStack.Host;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Helena.Test.Back.Service.Implements
 {
     public class CompanyService : ICompanyService
     {
         private readonly ICompanyRepository _companyRepository;
-        
         public CompanyService(ICompanyRepository companyRepository)
         {
             _companyRepository = companyRepository;

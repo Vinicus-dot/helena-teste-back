@@ -1,5 +1,5 @@
-﻿using Helena.Test.Back.Repository.Interfaces;
-using Helena.Test.Back.Service.Implements;
+﻿using Helena.Test.Back.Model;
+using Helena.Test.Back.Repository.Interfaces;
 using Helena.Test.Back.Service.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using NetCore.AutoRegisterDi;

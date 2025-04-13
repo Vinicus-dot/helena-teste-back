@@ -13,8 +13,8 @@ namespace Helena.Test.Back.Repository.Interfaces
         Task<CompanyEntity> CreateAsync(CompanyDTO companyDTO);
         Task<bool> DeleteAsync(long id);
         Task<List<CompanyEntity>> GetAllAsync();
-        Task<CompanyEntity> GetByIdAsync(long id);
-        Task<CompanyEntity> GetByRazaoSocialAsync(string razaoSocial);
+        Task<CompanyEntity?> GetByIdAsync(long id);
+        Task<CompanyEntity?> GetByRazaoSocialAsync(string razaoSocial);
         Task<CompanyEntity> UpdateAsync(long id, CompanyDTO companyDTO);
     }
 }
