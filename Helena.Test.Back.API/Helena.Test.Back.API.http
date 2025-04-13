@@ -1,0 +1,6 @@
+@Helena.Test.Back.API_HostAddress = http://localhost:5152
+
+GET {{Helena.Test.Back.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
