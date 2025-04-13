@@ -5,5 +5,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+	<ItemGroup>
+		<PackageReference Include="ServiceStack" Version="6.9.0" />
+		<PackageReference Include="NetCore.AutoRegisterDi" Version="2.1.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Helena.Test.Back.Repository\Helena.Test.Back.Repository.csproj" />
+	  <ProjectReference Include="..\Helena.Test.Back.Service\Helena.Test.Back.Service.csproj" />
+	</ItemGroup>
 </Project>
