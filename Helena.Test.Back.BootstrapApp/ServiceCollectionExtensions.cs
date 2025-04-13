@@ -1,4 +1,5 @@
 ﻿using Helena.Test.Back.Repository.Interfaces;
+using Helena.Test.Back.Service.Implements;
 using Helena.Test.Back.Service.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using NetCore.AutoRegisterDi;
@@ -17,6 +18,12 @@ namespace Helena.Test.Back.BootstrapApp
               )
              .Where(c => c.Name.EndsWith("Service") || c.Name.EndsWith("Repository"))
              .AsPublicImplementedInterfaces(ServiceLifetime.Scoped);
+
+            ConnectionString connectionString = new()
+            {
+                HelenaDbConnectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING_HELENA") ?? ""
+            };
+            services.AddSingleton<IConnectionString>(connectionString);
 
             return services;
         }
