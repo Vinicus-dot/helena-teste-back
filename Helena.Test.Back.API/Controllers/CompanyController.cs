@@ -65,7 +65,7 @@ namespace Helena.Test.Back.API.Controllers
         [SwaggerResponse(500, "Erro interno do servidor")]
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> GetCompany([Required][FromRoute] string id)
+        public async Task<IActionResult> GetCompany([Required][FromRoute] long id)
         {
             return Ok(await _companyService.GetCompanyAsync(id));
         }
@@ -117,7 +117,7 @@ namespace Helena.Test.Back.API.Controllers
         [SwaggerResponse(500, "Erro interno do servidor")]
         [HttpPut]
         [Route("{id}")]
-        public async Task<IActionResult> UpdateCompany([Required][FromRoute] string id, [FromBody] CompanyDTO companyDTO)
+        public async Task<IActionResult> UpdateCompany([Required][FromRoute] long id, [FromBody] CompanyDTO companyDTO)
         {
             await _companyService.UpdateCompanyAsync(id, companyDTO);
             return NoContent();
@@ -142,7 +142,7 @@ namespace Helena.Test.Back.API.Controllers
         [SwaggerResponse(500, "Erro interno do servidor")]
         [HttpDelete]
         [Route("{id}")]
-        public async Task<IActionResult> DeleteCompany([Required][FromRoute] string id)
+        public async Task<IActionResult> DeleteCompany([Required][FromRoute] long id)
         {
             await _companyService.DeleteCompanyAsync(id);
             return NoContent();

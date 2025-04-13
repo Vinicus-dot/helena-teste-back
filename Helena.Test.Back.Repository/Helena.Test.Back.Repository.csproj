@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implements\" />
+    <ProjectReference Include="..\Helena.Test.Back.Model\Helena.Test.Back.Model.csproj" />
   </ItemGroup>
 
 </Project>

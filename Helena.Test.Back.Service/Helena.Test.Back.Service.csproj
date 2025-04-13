@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="ServiceStack" Version="6.9.0" />
+  </ItemGroup>
+	
+	<ItemGroup>
     <ProjectReference Include="..\Helena.Test.Back.Model\Helena.Test.Back.Model.csproj" />
+    <ProjectReference Include="..\Helena.Test.Back.Repository\Helena.Test.Back.Repository.csproj" />
   </ItemGroup>
 
 </Project>

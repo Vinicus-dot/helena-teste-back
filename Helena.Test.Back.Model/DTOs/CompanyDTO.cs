@@ -6,7 +6,7 @@ namespace Helena.Test.Back.Model.DTOs
     public class CompanyDTO
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonPropertyName("avatarUrl")]
         public string AvatarUrl { get; set; }
@@ -18,7 +18,7 @@ namespace Helena.Test.Back.Model.DTOs
         public string RazaoSocial { get; set; }
 
         [JsonPropertyName("qtdeFuncionarios")]
-        public int QtdeFuncionarios { get; set; }
+        public long QtdeFuncionarios { get; set; }
 
         [JsonPropertyName("active")]
         public bool Active { get; set; }

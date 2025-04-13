@@ -10,10 +10,10 @@ namespace Helena.Test.Back.Service.Interfaces
     public interface ICompanyService
     {
         Task<List<CompanyDTO>> GetCompaniesAsync();
-        Task<CompanyDTO> GetCompanyAsync(string id);
+        Task<CompanyDTO> GetCompanyAsync(long id);
         Task<CompanyDTO> CreateCompanyAsync(CompanyDTO companyDTO);
-        Task<CompanyDTO> UpdateCompanyAsync(string id, CompanyDTO companyDTO);
-        Task<bool> DeleteCompanyAsync(string id);
+        Task<CompanyDTO> UpdateCompanyAsync(long id, CompanyDTO companyDTO);
+        Task<bool> DeleteCompanyAsync(long id);
     }
     
 }
