@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helena.Test.Back.API", "Hel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helena.Test.Back.BootstrapApp", "Helena.Test.Back.BootstrapApp\Helena.Test.Back.BootstrapApp.csproj", "{ECF742BE-FCAD-4C41-9EF5-4CEF61718E5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helena.Test.Back.Model", "Helena.Test.Back.Model\Helena.Test.Back.Model.csproj", "{50BCBF0E-5279-406C-BAEB-B3C41D5B2DC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ECF742BE-FCAD-4C41-9EF5-4CEF61718E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECF742BE-FCAD-4C41-9EF5-4CEF61718E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECF742BE-FCAD-4C41-9EF5-4CEF61718E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BCBF0E-5279-406C-BAEB-B3C41D5B2DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BCBF0E-5279-406C-BAEB-B3C41D5B2DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BCBF0E-5279-406C-BAEB-B3C41D5B2DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BCBF0E-5279-406C-BAEB-B3C41D5B2DC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
