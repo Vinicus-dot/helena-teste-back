@@ -1,4 +1,5 @@
 using Helena.Test.Back.BootstrapApp;
+using Helena.Test.Back.BootstrapApp.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddServicesAndRepositories();
 
 var app = builder.Build();
-
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
