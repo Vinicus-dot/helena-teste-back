@@ -68,7 +68,7 @@ A aplicação pode ser configurada através do arquivo `appsettings.json`.
 
 ## Tecnologias
 - .NET 8
-- Entity Framework Core
+- Dapper
 - MySQL
 - Docker
 
