@@ -64,7 +64,7 @@ CREATE TABLE Company (
 - `DELETE /api/company/{id}` - Deletar uma empresa
 
 ## Configuração
-A aplicação pode ser configurada através do arquivo `appsettings.json`.
+A aplicação pode ser configurada através do arquivo `launchSettings.json`.
 
 ## Tecnologias
 - .NET 8
