@@ -14,7 +14,7 @@ namespace Helena.Test.Back.Service.Implements
             _companyRepository = companyRepository;
         }
 
-        public async Task<CompanyDTO> CreateCompanyAsync(CompanyDTO companyDTO)
+        public async Task<CompanyDTO> CreateCompanyAsync(CompanySingleDTO companyDTO)
         {
             if (companyDTO == null)
                 throw new HttpException(StatusCodes.Status400BadRequest, "Os dados da empresa não podem ser nulos");
@@ -58,7 +58,7 @@ namespace Helena.Test.Back.Service.Implements
             return result.Select(CompanyExtensions.ToDto).ToList(); 
         }
 
-        public async Task<CompanyDTO> GetCompanyAsync(long id)
+        public async Task<CompanySingleDTO> GetCompanyAsync(long id)
         {
             if (id <= 0)
                 throw new HttpException(StatusCodes.Status400BadRequest, "O id deve ser maior que 0");
@@ -66,10 +66,10 @@ namespace Helena.Test.Back.Service.Implements
             var company = await _companyRepository.GetByIdAsync(id) ??
                 throw new HttpException(StatusCodes.Status404NotFound, "Empresa não encontrada");
             
-            return CompanyExtensions.ToDto(company);
+            return CompanyExtensions.ToDtoSingle(company);
         }
 
-        public async Task<CompanyDTO> UpdateCompanyAsync(long id, CompanyDTO companyDTO)
+        public async Task<CompanyDTO> UpdateCompanyAsync(long id, CompanyPutRquestDTO companyDTO)
         {
             if (id <= 0)
                 throw new HttpException(StatusCodes.Status400BadRequest, "O id deve ser maior que 0");
@@ -91,9 +91,6 @@ namespace Helena.Test.Back.Service.Implements
         
             if (companyDTO.QtdeFuncionarios < 0)
                 throw new HttpException(StatusCodes.Status400BadRequest, "Quantidade de Funcionários não pode ser negativa");
-
-            if (companyDTO.Id != id)
-                throw new HttpException(StatusCodes.Status400BadRequest, "O ID na rota e no objeto não correspondem");
 
             var existingCompany = await _companyRepository.GetByIdAsync(id) ??
                 throw new HttpException(StatusCodes.Status404NotFound, "Empresa não encontrada");

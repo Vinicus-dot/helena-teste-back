@@ -10,11 +10,11 @@ namespace Helena.Test.Back.Repository.Interfaces
 {
     public interface ICompanyRepository
     {
-        Task<CompanyEntity> CreateAsync(CompanyDTO companyDTO);
+        Task<CompanyEntity> CreateAsync(CompanySingleDTO companyDTO);
         Task<bool> DeleteAsync(long id);
         Task<List<CompanyEntity>> GetAllAsync();
         Task<CompanyEntity?> GetByIdAsync(long id);
         Task<CompanyEntity?> GetByRazaoSocialAsync(string razaoSocial);
-        Task<CompanyEntity> UpdateAsync(long id, CompanyDTO companyDTO);
+        Task<CompanyEntity> UpdateAsync(long id, CompanyPutRquestDTO companyDTO);
     }
 }

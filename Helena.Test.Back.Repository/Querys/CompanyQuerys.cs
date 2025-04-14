@@ -27,7 +27,7 @@ namespace Helena.Test.Back.Repository.Querys
 
         public static string DeleteQuery => @"UPDATE Company 
             SET 
-                Active = false,
+                Active = false
             WHERE Id = @Id";
 
         public static string GetAllQuery => @"
@@ -55,11 +55,11 @@ namespace Helena.Test.Back.Repository.Querys
         public static string UpdateQuery => @"
             UPDATE Company 
             SET 
-                AvatarUrl = @AvatarUrl,
+                AvatarUrl = COALESCE(@AvatarUrl, AvatarUrl),
                 NomeFantasia = @NomeFantasia,
                 RazaoSocial = @RazaoSocial,
-                QtdeFuncionarios = @QtdeFuncionarios,
-                Active = @Active
-            WHERE Id = @Id";
+                QtdeFuncionarios = @QtdeFuncionarios
+            WHERE Id = @Id;
+            ";
     }
 }

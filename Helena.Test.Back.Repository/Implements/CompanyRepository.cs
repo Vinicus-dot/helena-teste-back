@@ -22,7 +22,7 @@ namespace Helena.Test.Back.Repository.Implements
             _connectionString = connectionString;
         }
 
-        public async Task<CompanyEntity> CreateAsync(CompanyDTO companyDTO)
+        public async Task<CompanyEntity> CreateAsync(CompanySingleDTO companyDTO)
         {
             using var connection = new MySqlConnection(_connectionString.HelenaDbConnectionString);
             await connection.OpenAsync();
@@ -67,7 +67,7 @@ namespace Helena.Test.Back.Repository.Implements
             return await connection.QueryFirstOrDefaultAsync<CompanyEntity>(CompanyQuerys.GetByRazaoSocialQuery, new { RazaoSocial = razaoSocial });
         }
 
-        public async Task<CompanyEntity> UpdateAsync(long id, CompanyDTO companyDTO)
+        public async Task<CompanyEntity?> UpdateAsync(long id, CompanyPutRquestDTO companyDTO)
         {
             using var connection = new MySqlConnection(_connectionString.HelenaDbConnectionString);
             await connection.ExecuteAsync(CompanyQuerys.UpdateQuery, new { 
@@ -75,19 +75,10 @@ namespace Helena.Test.Back.Repository.Implements
                 companyDTO.AvatarUrl,
                 companyDTO.NomeFantasia,
                 companyDTO.RazaoSocial,
-                companyDTO.QtdeFuncionarios,
-                companyDTO.Active
+                companyDTO.QtdeFuncionarios
             });
-            
-            return new CompanyEntity
-            {
-                Id = id,
-                AvatarUrl = companyDTO.AvatarUrl,
-                NomeFantasia = companyDTO.NomeFantasia,
-                RazaoSocial = companyDTO.RazaoSocial,
-                QtdeFuncionarios = companyDTO.QtdeFuncionarios,
-                Active = companyDTO.Active
-            };
+
+            return await GetByIdAsync(id);
         }
     }
 }
