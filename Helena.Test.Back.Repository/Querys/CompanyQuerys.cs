@@ -25,7 +25,10 @@ namespace Helena.Test.Back.Repository.Querys
             );
             SELECT LAST_INSERT_ID();";
 
-        public static string DeleteQuery => "DELETE FROM Company WHERE Id = @Id";
+        public static string DeleteQuery => @"UPDATE Company 
+            SET 
+                Active = false,
+            WHERE Id = @Id";
 
         public static string GetAllQuery => @"
             SELECT 
